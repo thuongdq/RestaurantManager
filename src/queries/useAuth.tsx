@@ -12,3 +12,15 @@ export const useLoginMutation = () => {
         },
     });
 };
+
+export const useLogoutMutation = () => {
+    return useMutation({
+        mutationFn: authApiRequest.logout,
+        onSuccess: (data) => {
+            console.log('Đăng xuất thành công:', data);
+        },
+        onError: (error) => {
+            console.error('Lỗi đăng xuất:', error);
+        },
+    });
+};
