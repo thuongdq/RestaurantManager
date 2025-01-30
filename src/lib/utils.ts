@@ -39,3 +39,17 @@ export const handleErrorApi = ({
         });
     }
 };
+
+const isBrowser = typeof window !== 'undefined';
+
+export const getAccessTokenFromLocalStorage = (): string | null =>
+    isBrowser ? localStorage.getItem('accessToken') : null;
+
+export const fetRefreshTokenFromLocalStorage = (): string | null =>
+    isBrowser ? localStorage.getItem('refreshtoken') : null;
+export const formatCurrency = (number: number) => {
+    return new Intl.NumberFormat('vi-VN', {
+        style: 'currency',
+        currency: 'VND',
+    }).format(number);
+};
