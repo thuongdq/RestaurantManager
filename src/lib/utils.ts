@@ -45,8 +45,16 @@ const isBrowser = typeof window !== 'undefined';
 export const getAccessTokenFromLocalStorage = (): string | null =>
     isBrowser ? localStorage.getItem('accessToken') : null;
 
-export const fetRefreshTokenFromLocalStorage = (): string | null =>
+export const getRefreshTokenFromLocalStorage = (): string | null =>
     isBrowser ? localStorage.getItem('refreshtoken') : null;
+
+export const setAccessTokenFromLocalStorage = (value: string) => {
+    isBrowser && localStorage.setItem('accessToken', value);
+};
+
+export const setRefreshTokenFromLocalStorage = (value: string) => {
+    isBrowser && localStorage.setItem('refreshtoken', value);
+};
 export const formatCurrency = (number: number) => {
     return new Intl.NumberFormat('vi-VN', {
         style: 'currency',
