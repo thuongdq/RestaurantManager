@@ -14,7 +14,7 @@ import { useLoginMutation, useLogoutMutation } from '@/queries/useAuth';
 import { log } from 'console';
 import { handleErrorApi } from '@/lib/utils';
 import { useRouter } from 'next/navigation';
-import { useAccountProfile } from '@/queries/useAccount';
+import { useAccountMe } from '@/queries/useAccount';
 
 // const account = {
 //     name: 'Nguyễn Văn A',
@@ -24,7 +24,7 @@ import { useAccountProfile } from '@/queries/useAccount';
 export default function DropdownAvatar() {
     const logoutMutation = useLogoutMutation();
     const router = useRouter();
-    const { data } = useAccountProfile();
+    const { data } = useAccountMe();
     const account = data?.payload.data;
 
     const logout = async () => {
